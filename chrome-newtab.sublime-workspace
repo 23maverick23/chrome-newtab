@@ -1,0 +1,435 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"fun",
+				"function	Add a function template"
+			],
+			[
+				"recC",
+				"recCustPOtoProj"
+			],
+			[
+				"custP",
+				"custPOtoProjResults"
+			],
+			[
+				"cu",
+				"customerid"
+			],
+			[
+				"prj_",
+				"prj_autoid__c"
+			],
+			[
+				"fldp",
+				"FLD_TASK_PROJID"
+			],
+			[
+				"CON",
+				"CONST_ISSUE_STATUSID"
+			],
+			[
+				"FLD_I",
+				"FLD_ISS_STATUSID"
+			],
+			[
+				"CONST",
+				"CONST_ISSUE_STAGEID"
+			],
+			[
+				"FLD_ISS",
+				"FLD_ISS_STAGEID"
+			],
+			[
+				"FLD_CO",
+				"FLD_CO_DATE"
+			],
+			[
+				"FL",
+				"FLD_ISS_DATE"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "default.html",
+			"settings":
+			{
+				"buffer_size": 2633,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "css/sticky-footer-navbar.css",
+			"settings":
+			{
+				"buffer_size": 732,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/main.js",
+			"settings":
+			{
+				"buffer_size": 890,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 375.0,
+		"selected_items":
+		[
+			[
+				"javasc",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"java",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"synja",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"mark",
+				"Set Syntax: Markdown"
+			],
+			[
+				"ns",
+				"Set Syntax: JavaScript (NSOA)"
+			],
+			[
+				"synhtml",
+				"Set Syntax: HTML"
+			],
+			[
+				"brow",
+				"Preferences: Browse Packages"
+			],
+			[
+				"synmark",
+				"Set Syntax: Markdown"
+			],
+			[
+				"mar",
+				"Set Syntax: Markdown"
+			],
+			[
+				"synjaoa",
+				"Set Syntax: JavaScript (NSOA)"
+			],
+			[
+				"synjo",
+				"Set Syntax: JavaScript (NSOA)"
+			],
+			[
+				"jaon",
+				"Set Syntax: JavaScript (NSOA)"
+			],
+			[
+				"synjoa",
+				"Set Syntax: JavaScript (NSOA)"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"instll",
+				"Package Control: Install Package"
+			],
+			[
+				"add",
+				"Package Control: Add Repository"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"paadd",
+				"Package Control: Add Repository"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"disco",
+				"Package Control: Discover Packages"
+			],
+			[
+				"user",
+				"Preferences: Settings - User"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"instl",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 561.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/rmorrissey/Projects/chrome-newtab/manifest.json",
+		"/Users/rmorrissey/Projects/chrome-newtab/css/sticky-footer-navbar.css",
+		"/Users/rmorrissey/Downloads/default.html",
+		"/Users/rmorrissey/Downloads/TS Load 3.csv",
+		"/Users/rmorrissey/Projects/chrome-newtab/js/Markdown.Converter.js",
+		"/Users/rmorrissey/Box Documents/_SC/_Team Lead/InterCall Conference Info.md",
+		"/Users/rmorrissey/Downloads/Grey Health (GHG) call - 02 Dec 2013.md",
+		"/Users/rmorrissey/Library/Application Support/Sublime Text 3/Packages/User/Markdown.sublime-settings",
+		"/Users/rmorrissey/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/rmorrissey/Downloads/indexeddb.js",
+		"/Users/rmorrissey/Box Documents/_SC/_Team Lead/Team 1on1s/Brent 1on1/Brent Mosher - 1on1 - 02 Dec 2013.md",
+		"/Users/rmorrissey/Box Documents/_SC/_Team Lead/Team Morrissey - Phone List.md",
+		"/Users/rmorrissey/Box Documents/_SC/NSOA User scripts/createCustomerPO.js",
+		"/Users/rmorrissey/Box Documents/_SC/NSOA User scripts/updateProjectBudgetHours.js",
+		"/Users/rmorrissey/Box Documents/_SC/NSOA User scripts/createChangeOrderIssue.js",
+		"/Users/rmorrissey/Box Documents/_SC/NSOA User scripts/projectAutoNumber.js",
+		"/Users/rmorrissey/Library/Application Support/Sublime Text 3/Packages/Modific/Modific.sublime-settings",
+		"/Users/rmorrissey/.config/fish/config.fish",
+		"/Users/rmorrissey/.bash_profile",
+		"/Users/rmorrissey/Library/Application Support/Sublime Text 3/Packages/User/Marked.sublime-build",
+		"/Users/rmorrissey/Library/Application Support/Sublime Text 3/Packages/SideBarEnhancements/CHANGELOG"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"arrayResult",
+			"•   ",
+			"recProj",
+			"custPOResults",
+			"recCustPO",
+			"updPrj"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "default.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2633,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2330,
+								2330
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 443.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "css/sticky-footer-navbar.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 732,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								732,
+								732
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "js/main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 890,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								441,
+								441
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 114.0
+	},
+	"project": "chrome-newtab.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

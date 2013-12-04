@@ -1,0 +1,25 @@
+{
+    "manifest_version": 2,
+
+    "name": "chrome-newtab",
+    "version": "1.0",
+    "description": "Custom Chrome new tab page.",
+    "homepage_url": "http://ryancmorrissey.com/",
+
+    "icons": {
+        "16": "img/icon-16.png",
+        "19": "img/icon-19.png",
+        "48": "img/icon-48.png",
+        "128": "img/icon-128.png"
+        },
+
+    "permissions": [
+        "tabs"
+    ],
+
+    // "options_page": "options.html",
+
+    "chrome_url_overrides": {
+        "newtab": "default.html"
+    }
+}
