@@ -22,6 +22,9 @@ body {
   height: 60px;
   background-color: #f5f5f5;
 }
+#footer > .container > .text-muted {
+  margin: 20px 0;
+}
 
 
 /* Custom page CSS
@@ -31,6 +34,19 @@ body {
 #wrap > .container {
   padding: 60px 15px 0;
 }
-.container .text-muted {
-  margin: 20px 0;
+
+.panel-warning > .panel-body {
+  background-color: #fcf8e3;
+}
+
+.panel-warning > .panel-footer {
+  background-color: #fcf2e3;
+}
+
+.panel-footer > .important-note {
+  margin-left: 5px;
+}
+
+.panel-footer > small {
+  margin-left: 20px;
 }

@@ -25,42 +25,88 @@
 		<!-- Fixed navbar -->
 		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="container">
-			  	<div class="navbar-header">
+				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-					  	<span class="sr-only">Toggle navigation</span>
-					  	<span class="icon-bar"></span>
-					  	<span class="icon-bar"></span>
-					  	<span class="icon-bar"></span>
-				 	</button>
-				  	<a class="navbar-brand" href="#">Chrome New Tab</a>
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Chrome New Tab</a>
 				</div>
-			  	<div class="collapse navbar-collapse">
+				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-				  		<button type="button" class="btn btn-primary navbar-btn"><span class="glyphicon glyphicon-plus"></span> Add Note</button>
-		  			</ul>
-		  			<ul class="nav navbar-nav navbar-right">
-		  				<button type="button" class="btn btn-default navbar-btn original-new-tab"><span class="glyphicon glyphicon-th"></span></button>
-		  				<a href="options.html" class="btn btn-default navbar-btn options-page"><span class="glyphicon glyphicon-cog"></span></a>
-	  				</ul>
+						<button id="add-note" type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#add-note-modal"><span class="glyphicon glyphicon-plus"></span> Add Note</button>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<button type="button" class="btn btn-default navbar-btn original-new-tab"><span class="glyphicon glyphicon-th"></span></button>
+						<a href="options.html" class="btn btn-default navbar-btn options-page"><span class="glyphicon glyphicon-cog"></span></a>
+					</ul>
 				</div><!--/.nav-collapse -->
 			</div>
 		</div>
 
 		<!-- Begin page content -->
-		<div class="container">
-			<div class="page-header">
-		  		<h1>Sticky footer with fixed navbar</h1>
-	  		</div>
-	  		<p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added within <code>#wrap</code> with <code>padding-top: 60px;</code> on the <code>.container</code>.</p>
-	  		<p>Back to <a href="../sticky-footer">the default sticky footer</a> minus the navbar.</p>
+		<div id="note-container" class="container">
+			<h2 class="text-center">Quick Notes</h2>
+			<hr>
+			<!-- Begin loading note panels here -->
 		</div>
+
+		<!-- Begin add note modal -->
+		<div class="modal fade" id="add-note-modal">
+			<div class="modal-dialog">
+				<form role="form" id="add-note-form">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title"><span class="glyphicon glyphicon-plus"></span> Add Note</h4>
+						</div>
+						<div class="modal-body">
+							<div class="form-group">
+								<textarea class="form-control input-lg" id="new-note-content" rows="6" placeholder="Enter your note here..." autofocus="autofocus"></textarea>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button id="cancel-new-note" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+							<button id="save-new-note" type="submit" class="btn btn-primary">Save</button>
+						</div>
+					</div><!-- /.modal-content -->
+				</form><!-- /role=form -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+		<!-- Begin modify note modal -->
+		<div class="modal fade" id="modify-note-modal">
+			<div class="modal-dialog">
+				<form role="form" id="modify-note-form">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title"><span class="glyphicon glyphicon-pencil"></span> Modify Note</h4>
+						</div>
+						<div class="modal-body">
+							<div class="form-group">
+								<input type="hidden" id="modify-note-id" value="">
+								<textarea class="form-control input-lg" id="modify-note-content" rows="6" autofocus="autofocus"></textarea>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button id="cancel-modify-note" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+							<button id="save-modify-note" type="submit" class="btn btn-warning">Update</button>
+						</div>
+					</div><!-- /.modal-content -->
+				</form><!-- /role=form -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
 	</div>
 
-	<div id="footer">
-  		<div class="container">
-			<p class="text-muted">Total outstanding notes: 5</p>
+	<!-- Begin footer -->
+	<footer id="footer">
+		<div class="container">
+			<p class="text-muted"></p>
 		</div>
-	</div>
+	</footer>
 
 
 	<!-- JavaScript goes here -->
