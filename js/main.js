@@ -17,8 +17,9 @@ function init() {
         newTabLink();
         saveNewNote();
         saveModifiedNote();
-        makeNoteImportant();
+        flagNote();
         deleteSingleNote();
+        deleteAllNotes();
 
     } catch(err) {
         return 'Try/catch error: ' + err;
@@ -53,7 +54,12 @@ function writeNotes() {
     if (noteArray && noteArray.length) {
         var len = noteArray.length;
         for (var i = 0; i < len; i++) {
-            htmlArray.push(note.html.panel(noteArray[i].id, noteArray[i].updated, noteArray[i].content));
+            htmlArray.push(note.html.panel(
+                noteArray[i].id,
+                noteArray[i].content,
+                noteArray[i].flag,
+                noteArray[i].updated
+            ));
         }
 
         $('#note-container').append(note.html.row(htmlArray));
@@ -72,6 +78,7 @@ function modalAddNote() {
 
     $('#add-note-modal').on('hide.bs.modal', function() {
         $('#new-note-content')[0].value = '';
+        $('#new-note-flag').removeClass('active btn-danger');
     });
 
     //show.bs.modal
@@ -81,14 +88,22 @@ function modalAddNote() {
 function saveNewNote() {
     $('#add-note-form').submit(function(e) {
         e.preventDefault();
-        note.add($('#new-note-content')[0].value);
+        var content = $('#new-note-content')[0].value;
+        if (content.length > 0)
+        note.add(
+            content,
+            ($('#new-note-flag').hasClass('active')) ? true : false
+        );
         location.reload();
     });
 
     $('#add-note-form').keypress(function(e) {
         if (e.which == 13 && !e.shiftKey) {
             e.preventDefault();
-            note.add($('#new-note-content')[0].value);
+            note.add(
+                $('#new-note-content')[0].value,
+                ($('#new-note-flag').hasClass('active')) ? true : false
+            );
             location.reload();
         }
     });
@@ -104,12 +119,22 @@ function modalModifyNote() {
     $('#modify-note-modal').on('hide.bs.modal', function() {
         $('#modify-note-id')[0].value = '';
         $('#modify-note-content')[0].value = '';
+        $('#modify-note-flag').removeClass('active btn-danger');
+
     });
 
     $('#modify-note-modal').on('show.bs.modal', function(e) {
         var id = Number(e.relatedTarget.parentNode.offsetParent.id);
+        var n = note.get(id);
         $('#modify-note-id')[0].value = id;
-        $('#modify-note-content')[0].value = note.get(id).content;
+        $('#modify-note-content')[0].value = n.content;
+        var f = $('#modify-note-flag');
+        if (n.flag) { f.addClass('active'); }
+    });
+
+    $('#modify-note-modal').on('shown.bs.modal', function() {
+        var f = $('#modify-note-flag');
+        (f.hasClass('active')) ? f.addClass('btn-danger') : f.removeClass('btn-danger');
     });
 }
 
@@ -119,7 +144,11 @@ function saveModifiedNote() {
         e.preventDefault();
         console.log(e);
         var id = Number($('#modify-note-id')[0].value);
-        note.update(id, $('#modify-note-content')[0].value);
+        note.update(
+            id,
+            $('#modify-note-content')[0].value,
+            ($('#modify-note-flag').hasClass('active')) ? true : false
+        );
         location.reload();
     });
 
@@ -127,9 +156,30 @@ function saveModifiedNote() {
         if (e.which == 13 && !e.shiftKey) {
             e.preventDefault();
             var id = Number($('#modify-note-id')[0].value);
-            note.update(id, $('#modify-note-content')[0].value);
+            note.update(
+                id,
+                $('#modify-note-content')[0].value,
+                ($('#modify-note-flag').hasClass('active')) ? true : false
+            );
             location.reload();
         }
+    });
+}
+
+function flagNote() {
+    $('.flag-note').each(function() {
+        $(this).click(function() {
+            note.flag(Number($(this).closest('.col-md-4').attr('id')));
+            location.reload();
+        });
+    });
+
+    $('#new-note-flag').click(function() {
+        ($(this).hasClass('active')) ? $(this).removeClass('btn-danger') : $(this).addClass('btn-danger');
+    });
+
+    $('#modify-note-flag').click(function() {
+        ($(this).hasClass('active')) ? $(this).removeClass('btn-danger') : $(this).addClass('btn-danger');
     });
 }
 
@@ -143,11 +193,29 @@ function deleteSingleNote() {
     });
 }
 
-function makeNoteImportant() {
-    $('.important-note').each(function() {
-        $(this).click(function() {
-            $(this).closest('.panel').removeClass('panel-default');
-            $(this).closest('.panel').addClass('panel-warning');
+function deleteAllNotes() {
+    $('#delete-all-notes').popover({
+        show: false,
+        animation: true,
+        html: true,
+        placement: 'top',
+        trigger: 'click',
+        title: 'Confirm delete',
+        content: '<button id="cancel-delete-all-notes" type="button" class="btn btn-default"><span class="glyphicon glyphicon-ban-circle"></span></button><button id="confirm-delete-all-notes" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>',
+        container: '#wrap'
+    });
+
+    $('#delete-all-notes').on('shown.bs.popover', function() {
+        $('#cancel-delete-all-notes').click(function() {
+            $('#delete-all-notes').popover('hide');
+        });
+    });
+
+    $('#delete-all-notes').on('shown.bs.popover', function() {
+        $('#confirm-delete-all-notes').click(function() {
+            note.deleteAll();
+            location.reload();
+            $('#delete-all-notes').popover('destroy');
         });
     });
 }
@@ -161,32 +229,33 @@ function makeNoteImportant() {
 
 */
 var note = {
-    add: function(content) {
+    add: function(content, flag) {
         if (!content || typeof content !== "string") {
             return "content must be type string!";
         }
 
-        var note = {};
+        var n = {};
         var d = new Date();
         var id = d.getTime();
-        note.id = id;
-        note.updated = d.toLocaleString();
-        note.content = content;
+        n.id = id;
+        n.content = content;
+        n.flag = (flag && typeof flag == "boolean") ? true : false;
+        n.updated = d.toLocaleString();
 
-        store.set(id, note);
-        return 'added id:' + note.id;
+        store.set(id, n);
+        return 'added id:' + n.id;
     },
     get: function(id) {
         if (!id || typeof id !== "number") {
             return "id must be type number!";
         }
 
-        var note = store.get(id);
-        return note;
+        var n = store.get(id);
+        return n;
     },
     getAll: function() {
-        var notes = store.getAll();
-        return notes;
+        var n = store.getAll();
+        return n;
     },
     getAllAsArray: function() {
         var objects = this.getAll();
@@ -198,7 +267,7 @@ var note = {
 
         return array;
     },
-    update: function(id, content) {
+    update: function(id, content, flag) {
         if (!id || typeof id !== "number") {
             return "id must be type number!";
         }
@@ -211,8 +280,9 @@ var note = {
             var d = new Date();
             var newNote = {}
             newNote.id = oldNote.id;
-            newNote.updated = d.toLocaleString();
+            newNote.flag = flag;
             newNote.content = content;
+            newNote.updated = d.toLocaleString();
 
             store.set(id, newNote);
         } else {
@@ -220,6 +290,27 @@ var note = {
         }
 
         return 'updated id:' + id;
+    },
+    flag: function(id) {
+        if (!id || typeof id !== "number") {
+            return "id must be type number!";
+        }
+
+        var oldNote = this.get(id);
+        if (oldNote) {
+            var d = new Date();
+            var newNote = {}
+            newNote.id = oldNote.id;
+            newNote.content = oldNote.content;
+            newNote.flag = (oldNote.flag) ? false : true;
+            newNote.updated = d.toLocaleString();
+
+            store.set(id, newNote);
+        } else {
+            return "unable to find a note with id == " + id;
+        }
+
+        return 'note id:' + id + ' flag:' + newNote.flag;
     },
     delete: function(id) {
         if (!id || typeof id !== "number") {
@@ -229,7 +320,7 @@ var note = {
         return 'deleted id:' + id;
     },
     deleteAll: function() {
-        var total = this.getAllSize();
+        var total = this.getAllAsArray().length;
         var plural = (total == 1) ? '' : 's';
         var notes = store.clear();
         return 'deleted ' + total + ' note' + plural;
@@ -258,29 +349,34 @@ note.html = note.prototype = {
 
         return content;
     },
-    panel: function(id, updated, content) {
+    panel: function(id, content, flag, updated) {
         if (!id || typeof id !== "number") {
             return "id must be type number!";
-        }
-        if (!updated || typeof updated !== "string") {
-            return "updated must be type string!";
         }
         if (!content || typeof content !== "string") {
             return "content must be type string!";
         }
+        if (flag === null || typeof flag !== "boolean") {
+            return "flag must be type boolean!";
+        }
+        if (!updated || typeof updated !== "string") {
+            return "updated must be type string!";
+        }
 
         this.id = id.toString();
-        this.updated = updated;
         this.content = content.replace(/\n/g, "<br>");
+        this.flag = (flag) ? 'panel-danger' : 'panel-default';
+        this.updated = updated;
 
-        var panel = '<div class="col-md-4" id="' + this.id + '"><div class="panel panel-default">' +
-            '<div class="panel-body"><p>' + this.content + '</p></div><div class="panel-footer">' +
+        var panel = '<div class="col-md-4" id="' + this.id + '">' +
+            '<div class="panel ' + this.flag + '"><div class="panel-body">' +
+            '<p>' + this.content + '</p></div><div class="panel-footer">' +
             '<button type="button" class="btn btn-xs btn-default modify-note" data-toggle="modal" '+
             'data-target="#modify-note-modal"><span class="glyphicon glyphicon-pencil"></span></button>' +
-            '<button type="button" class="btn btn-xs btn-warning important-note">' +
-            '<span class="glyphicon glyphicon-star"></span></button>' +
+            '<button type="button" class="btn btn-xs btn-danger flag-note">' +
+            '<span class="glyphicon glyphicon-flag"></span></button>' +
             '<small class="text-muted">' + this.updated + '</small>' +
-            '<button type="button" class="btn btn-xs btn-danger pull-right delete-note">' +
+            '<button type="button" class="btn btn-xs btn-link pull-right delete-note">' +
             '<span class="glyphicon glyphicon-trash"></span></button></div></div></div>';
         return panel;
     }

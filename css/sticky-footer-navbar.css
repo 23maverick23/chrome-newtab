@@ -16,6 +16,9 @@ body {
   /* Pad bottom by footer height */
   padding: 0 0 60px;
 }
+#wrap > .container {
+  padding: 60px 15px 0;
+}
 
 /* Set the fixed height of the footer here */
 #footer {
@@ -25,28 +28,32 @@ body {
 #footer > .container > .text-muted {
   margin: 20px 0;
 }
-
-
-/* Custom page CSS
--------------------------------------------------- */
-/* Not required for template or sticky footer method. */
-
-#wrap > .container {
-  padding: 60px 15px 0;
+#footer > .container > button {
+  margin-top: 12px;
 }
 
-.panel-warning > .panel-body {
-  background-color: #fcf8e3;
+.panel-danger > .panel-body {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
 }
-
-.panel-warning > .panel-footer {
-  background-color: #fcf2e3;
+.panel-danger > .panel-footer {
+  border-color: #ebccd1;
 }
-
-.panel-footer > .important-note {
+.panel-footer > .flag-note {
   margin-left: 5px;
 }
-
 .panel-footer > small {
   margin-left: 20px;
+}
+
+.popover-title {
+  text-align: center;
+}
+.popover-content {
+  margin: 0 auto;
+  text-align: center;
+}
+.popover-content > button {
+  margin: 0 5px;
 }
