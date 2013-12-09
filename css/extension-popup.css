@@ -1,0 +1,8 @@
+body {
+    height: 100%;
+    width: 300px;
+}
+
+#extension-popup > .panel {
+    margin: 10px;
+}

@@ -1,48 +1,34 @@
 {
     "manifest_version": 2,
 
-    "name": "Chrome New Tab",
+    "name": "Chrome Note Tab",
+    "short_name": "Chrome Note",
     "version": "1.0",
-    "description": "Customized Chrome new tab page for storing notes.",
+    "description": "Chrome Note Tab: simple note storage.",
+
+    "author": "Ryan Morrissey @rmorrissey23",
     "homepage_url": "http://ryancmorrissey.com/",
 
     "icons": {
-        "16": "img/icon-16.png",
         "19": "img/icon-19.png",
+        "38": "img/icon-19.png",
         "48": "img/icon-48.png",
         "128": "img/icon-128.png"
     },
-
-    "page_action": {
-        "default_icon": "img/icon-19.png",
+    "browser_action": {
+        "default_icon": {
+            "19": "img/icon-19.png",
+            "38": "img/icon-19.png"
+        },
         "default_popup": "popup.html",
-        "default_title": "Chrome New Tab"
+        "default_title": "Quick Add Note"
     },
-
-    "background": {
-        "scripts": [
-            "background.js"
-        ]
-    },
-
-    "content_scripts": [
-        {
-            "matches": [
-                "*"
-            ],
-            "js": [
-                "content.js"
-            ]
-        }
-    ],
-
     "permissions": [
         "tabs"
     ],
 
-    // "options_page": "options.html",
-
     "chrome_url_overrides": {
         "newtab": "default.html"
-    }
+    },
+    "offline_enabled": true
 }

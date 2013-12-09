@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Quick Note</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/extension-popup.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="extension-popup">
+        <div class="panel panel-default">
+            <form role="form" id="quick-note-form">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <textarea class="form-control input-lg" id="quick-note-content" rows="2" autofocus="autofocus"></textarea>
+                    </div>
+                    <button id="save-quick-note" type="submit" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-plus"></span> Add Note</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript goes here -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/store.min.js"></script>
+    <script src="js/note.min.js"></script>
+    <script src="js/popup.js"></script>
+</body>
+</html>
