@@ -3,6 +3,10 @@ body {
     width: 300px;
 }
 
-#extension-popup > .panel {
-    margin: 10px;
+#quick-note-content {
+    margin: 0 auto;
+}
+.form-group {
+    padding: 10px;
+    margin-bottom: 0;
 }

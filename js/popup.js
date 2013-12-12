@@ -12,6 +12,7 @@ function init() {
         }
 
         // load all functions
+        setQuickNoteFocus();
         quickAddNote();
 
     } catch(err) {
@@ -19,6 +20,10 @@ function init() {
     }
 }
 
+
+function setQuickNoteFocus() {
+    $('#quick-note-form').focus();
+}
 
 function quickAddNote() {
     $('#quick-note-form').submit(function(e) {
