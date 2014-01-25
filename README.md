@@ -23,7 +23,7 @@ This extension overrides your Chrome new tab page. Notes are stored in your brow
 
 ## License
 
-[LICENSE](LICENSE)
+[LICENSE](https://bitbucket.org/rmorrissey23/chrome-newtab/raw/master/LICENSE)
 
 ## Thanks
 
