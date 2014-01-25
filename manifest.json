@@ -2,12 +2,12 @@
     "manifest_version": 2,
 
     "name": "Chrome Note Tab",
-    "short_name": "Chrome Note",
+    "short_name": "Note Tab",
     "version": "1.1",
     "description": "Chrome Note Tab: simple note storage.",
 
     "author": "Ryan Morrissey @rmorrissey23",
-    "homepage_url": "http://ryancmorrissey.com/",
+    "homepage_url": "https://bitbucket.org/rmorrissey23/chrome-newtab/",
 
     "icons": {
         "19": "img/icon-19.png",
